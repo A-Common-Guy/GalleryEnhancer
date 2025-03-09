@@ -9,6 +9,12 @@ GALLERY_FOLDER=$1
 INPUT_FOLDER=$2
 OUTPUT_FOLDER=$3
 
+#check if .env file exists
+if [ ! -f .env ]; then
+  touch .env
+  echo "LIGHTLY_KEY=your_key" > .env
+fi
+
 # Load LIGHTLY_KEY from .env file
 export LIGHTLY_KEY=$(grep LIGHTLY_KEY .env | cut -d '=' -f2)
 
